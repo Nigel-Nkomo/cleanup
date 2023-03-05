@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import createConnection from "./Chat";
 
 function App() {
+  useEffect(() => {
+    const connection = createConnection();
+    connection.connect();
+
+    //react will call the cleanup function before the Effect runs again and when the component unmounts (gets removed)
+    return () => {
+      connection.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Welcome to mushroom chat!</h1>
+    </>
   );
 }
 
