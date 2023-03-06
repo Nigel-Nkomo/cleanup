@@ -1,5 +1,4 @@
-<div align="center">
-
+<div>
   <h1>Cleanup Functions</h1>
   <p>
     This repository is about using a cleanup function inside a useEffect 
